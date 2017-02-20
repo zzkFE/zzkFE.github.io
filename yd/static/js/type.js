@@ -1,0 +1,6 @@
+/*! 
+ tshirt 
+ 发布时间：2016-08-21 14:08:24 
+ 游订公司
+*/
+"use strict";function compileStyleAliases(a){var b={};return null!==a&&Object.keys(a).forEach(function(c){a[c].forEach(function(a){b[String(a)]=c})}),b}function Type(a,b){if(b=b||{},Object.keys(b).forEach(function(b){if(TYPE_CONSTRUCTOR_OPTIONS.indexOf(b)===-1)throw new YAMLException('Unknown option "'+b+'" is met in definition of "'+a+'" YAML type.')}),this.tag=a,this.kind=b.kind||null,this.resolve=b.resolve||function(){return!0},this.construct=b.construct||function(a){return a},this.instanceOf=b.instanceOf||null,this.predicate=b.predicate||null,this.represent=b.represent||null,this.defaultStyle=b.defaultStyle||null,this.styleAliases=compileStyleAliases(b.styleAliases||null),YAML_NODE_KINDS.indexOf(this.kind)===-1)throw new YAMLException('Unknown kind "'+this.kind+'" is specified for "'+a+'" YAML type.')}var YAMLException=require("./exception"),TYPE_CONSTRUCTOR_OPTIONS=["kind","resolve","construct","instanceOf","predicate","represent","defaultStyle","styleAliases"],YAML_NODE_KINDS=["scalar","sequence","mapping"];module.exports=Type;

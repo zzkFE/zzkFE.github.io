@@ -1,0 +1,6 @@
+/*! 
+ tshirt 
+ 发布时间：2016-08-21 14:08:24 
+ 游订公司
+*/
+$(function(){addeleEvent()});var addeleEvent=function(){$(".user-img-box li").on("mouseover",function(){$(this).addClass("active").siblings().removeClass("active"),$(".img-box li").eq($(this).index()).addClass("active").siblings().removeClass("active")}),$(".num-item.jian").on("click",function(){var a=parseInt($("#num-item-value").val());a>1?a--:a=1,$("#num-item-value").val(a)}),$(".num-item.jia").on("click",function(){var a=parseInt($("#num-item-value").val());a++,$("#num-item-value").val(a)});var a=$(".section-nav").offset().top;setInterval(function(){a=$(".section-nav").offset().top},2e3),$(document).on("scroll",function(){changeSectionNavStyle(a)}),changeSectionNavStyle(a),$(".section-nav span").on("click",function(){$(this).addClass("active").siblings().removeClass("active");var a=$(this).attr("role"),b=$("#"+a).offset().top;scrolltToPos(b-150)}),$(".style-pick").on("click",".color-item,.size-item,.style-item",function(){$(this).addClass("active").siblings().removeClass("active")})},changeSectionNavStyle=function(a){var b=null;b=$(".section-nav").hasClass("fixed-top")?a:$(".section-nav").offset().top;var c=$("body").scrollTop();c>b-60?$(".section-nav").addClass("fixed-top"):$(".section-nav").removeClass("fixed-top")},scrolltToPos=function(a){$("body").finish().animate({scrollTop:a})};

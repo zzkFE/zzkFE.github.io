@@ -1,0 +1,7 @@
+/*! 
+ tshirt 
+ 发布时间：2016-08-21 14:08:24 
+ 游订公司
+*/
+#!/usr/bin/env node
+"use strict";function readFile(a,b,c){if("-"===options.file){var d=[];process.stdin.on("data",function(a){d.push(a)}),process.stdin.on("end",function(){return c(null,Buffer.concat(d).toString(b))})}else fs.readFile(a,b,c)}var fs=require("fs"),argparse=require("argparse"),yaml=require(".."),cli=new argparse.ArgumentParser({prog:"js-yaml",version:require("../package.json").version,addHelp:!0});cli.addArgument(["-c","--compact"],{help:"Display errors in compact mode",action:"storeTrue"}),cli.addArgument(["-j","--to-json"],{help:argparse.Const.SUPPRESS,dest:"json",action:"storeTrue"}),cli.addArgument(["-t","--trace"],{help:"Show stack trace on error",action:"storeTrue"}),cli.addArgument(["file"],{help:"File to read, utf-8 encoded without BOM",nargs:"?",defaultValue:"-"});var options=cli.parseArgs();readFile(options.file,"utf8",function(a,b){var c,d;a&&("ENOENT"===a.code&&(console.error("File not found: "+options.file),process.exit(2)),console.error(options.trace&&a.stack||a.message||String(a)),process.exit(1));try{c=JSON.parse(b),d=!1}catch(a){if(a instanceof SyntaxError)try{c=[],yaml.loadAll(b,function(a){c.push(a)},{}),d=!0,0===c.length?c=null:1===c.length&&(c=c[0])}catch(b){options.trace&&a.stack?console.error(b.stack):console.error(b.toString(options.compact)),process.exit(1)}else console.error(options.trace&&a.stack||a.message||String(a)),process.exit(1)}process.exit(0)});

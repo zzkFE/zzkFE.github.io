@@ -1,0 +1,6 @@
+/*! 
+ tshirt 
+ 发布时间：2016-08-21 14:08:24 
+ 游订公司
+*/
+$(function(){addclickEvent(),uploadimg(),dragele()});var initpos=function(){var a=$(".user-img-content").innerWidth()-$("#draggable").outerWidth();$("#draggable").css("left",a/2+"px")},dragele=function(){initpos(),$("#draggable").resizable({containment:".user-img-content",aspectRatio:!0,maxWidth:$(".user-img-content").innerWidth()/2,minWidth:50}).draggable({scroll:!0,containment:".user-img-content"})},addclickEvent=function(){$("span.color-item").on("click",function(){$(this).addClass("active").siblings(".color-item").removeClass("active"),$(".img-item").eq($(this).index()).addClass("active").siblings(".img-item").removeClass("active")}),$("span.style-item").on("click",function(){$(this).addClass("active").siblings(".style-item").removeClass("active"),$(".img-item").eq($(this).index()-3).addClass("active").siblings(".img-item").removeClass("active")})},uploadimg=function(){var a=WebUploader.create({swf:"../static/webuploader/Uploader.swf",server:"",pick:"#uploadfile",resize:!1});a.on("uploadProgress",function(a,b){}),a.on("uploadComplete",function(a){}),a.on("uploadError",function(a){}),a.on("uploadSuccess",function(a){})};

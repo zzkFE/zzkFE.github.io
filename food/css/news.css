@@ -1,0 +1,76 @@
+.section>.container{
+	background-color: #fff;
+}
+.left{
+	padding:20px;
+}
+.left>.title{
+	height:20px;
+	margin:20px auto;
+}
+.left>.title h2{
+	font-weight: 100;
+	font-size:32px;
+	margin-left:15px;
+	text-align: center;
+}
+.left>.subtitle{
+	font-size:13px;
+	color:#717171;
+	text-align: center;
+	margin-top: 30px;
+	margin: 30px auto 15px;
+}
+.left>.content>.pic{
+	text-align: center;
+	margin:25px auto;
+}
+.left>.content>.pic>img{
+	width:400px;
+}
+.left>.content>.method{
+	line-height: 2.5;
+	font-size:14px;
+	font-weight:100;
+}
+.left>.content>.method .font-bold{
+	font-weight: normal;
+}
+.right>.content{
+	border-left:solid 1px #ccc;
+	border-bottom:solid 1px #ccc;
+}
+.right>.content>.list{
+	margin:15px 0 15px 15px;
+}
+.right>.content>.list .list-subtitle{
+	color:#A54600;
+	border-right:2px solid #A54600;
+	padding-right:10px;
+}
+
+.right>.content>.list .list-title{
+	padding-left:5px;
+}
+.right>.content>.list a{
+	text-decoration: none;
+	color:#555;
+}
+.right>.content>.list a:hover{
+	text-decoration: underline;
+}
+.right>.content>.list.first{
+	background-color: #F2F2F2;
+	padding:8px;
+}
+.recomme{
+	display: inline-block;
+	height: 35px;
+    line-height: 35px;
+    width: 140px;
+    text-align: center;
+    background-color: #4D2F25;
+    color: #fff;
+    font-size: 15px;
+    font-weight: normal; 
+}

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+	<title>重庆美食网</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="font/css/font-awesome.min.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    	body>.container{
+			background-color:#fff;
+    	}
+    	.section{
+    		padding-bottom:40px;
+    		border-bottom: 1px solid #efefef
+    	}
+		.section>.title{
+			text-align: center;
+			height:20px;
+			margin:40px auto 80px;
+		}
+		.section>.title h3{
+			font-weight: 100;
+			color:#333;
+			font-size:32px;
+			margin-left:15px;
+		}
+		.section>.title h3 span.subtitle{
+			display:block;
+			margin-top:18px;
+			font-size:12px;
+			color:#999;
+			font-weight: 100;
+			letter-spacing: .5em;
+		}
+		.section.link>.title{
+			margin-bottom:30px;
+		}
+
+		.content-1{
+			width:99%;	
+			margin:0 auto;	
+		}
+
+		.content-1>a{
+			color:#333;
+			text-decoration: none;
+		}
+		.content-1>a>img{
+			width:100%;
+		}
+
+		.content-1>a>.title{
+			font-size:16px;
+			font-weight: 600;
+			margin-top:8px;
+			margin-bottom:8px;
+		}
+		.content-1>a>.detail>.more{
+			text-decoration: underline;
+			color:#0AB3A3;
+		}
+		.section.caipu .row img,
+		.section.news .row img,
+		.section.video .row img{
+			width:100%;
+		}
+		.section .row a{
+			position: relative;
+		    display: inline-block;
+		}
+		
+		.section .row .col-sm-3 a:after,
+		.section .row .col-sm-3 a:before,
+		.section .row .col-sm-4 a:after,
+		.section .row .col-sm-4 a:before{
+			content: "";
+		    position: absolute;
+		    left: 50%;
+		    width: 0;
+		    bottom: 50%;
+		    height: 0;
+		    opacity: 0;
+		    -moz-transition: all,0.2s,ease-in-out;
+		    -webkit-transition: all,0.2s,ease-in-out;
+		    -o-transition: all,0.2s,ease-in-out;
+		    transition: all,0.2s,ease-in-out;
+		}
+		.section .row .col-sm-3 a:after,
+		.section .row .col-sm-3 a:before{
+		    background: none repeat scroll 0 0 rgba(10,179,163,0.1); 
+		}
+		.section .row .col-sm-4 .content-1 a:after,
+		.section .row .col-sm-4 .content-1 a:before{
+		    background: none repeat scroll 0 0 rgba(242,222,222,0.1); 
+		}
+
+		.section .row .col-sm-3 a:hover:after, 
+		.section .row .col-sm-3 a:hover:before,
+		.section .row .col-sm-4 .content-1 a:hover:after, 
+		.section .row .col-sm-4 .content-1 a:hover:before{
+		    width: 100%;
+		    height:100%;
+		    left: 0;
+		    bottom: 0;
+		    opacity: 1;  
+		}
+		.section.news .news-content a{
+			display: block;
+			padding:7px;
+			border:1px solid #ececec;
+			text-align: center;
+		}
+		#flash1{
+			width:100%;
+			height:205px;
+		}
+		.icon-video{
+			position: absolute;
+			display: inline-block;
+			font-size:26px;
+			top:5px;
+			left:20px;
+			text-decoration: none;
+			color:#0AB3A3;
+		}
+		.section.video a:hover .icon-video{
+			animation: myfirst 700ms linear infinite;
+			-moz-animation: myfirst 700ms linear infinite;	/* Firefox */
+			-webkit-animation: myfirst 700ms linear infinite;	/* Safari 和 Chrome */
+			-o-animation: myfirst 700ms linear infinite;	/* Opera */
+		}
+
+		@keyframes myfirst
+		{
+			from {transform:rotate(0deg);}
+			to {transform:rotate(360deg);}
+		}
+
+		@-moz-keyframes myfirst /* Firefox */
+		{
+		from {-moz-transform:rotate(0deg);}
+		to {-moz-transform:rotate(360deg);}
+		}
+
+		@-webkit-keyframes myfirst /* Safari and Chrome */
+		{
+		from {-webkit-transform:rotate(0deg);}
+		to {-webkit-transform:rotate(360deg);}
+		}
+
+		@-o-keyframes myfirst /* Opera */
+		{
+		from {-o-transform:rotate(0deg);}
+		to {-o-transform:rotate(360deg);}
+		}
+		.frdlink_list {
+			overflow: hidden;
+   			height: 80px;
+		    border: solid 1px #eee;
+		    padding: 10px;
+		    margin-left: 10px;
+		    margin-right: 20px;
+		    background: #FAFAFA;
+		}
+		.frdlink_list a {
+			display: block;
+		    float: left;
+		    margin-left: 5px;
+		    margin-right: 16px;
+		    height: 25px;
+		    line-height: 35px;
+		    font-size: 14px;
+		    color: #434343;
+		    white-space: nowrap;
+		}
+		#big-img img{
+			position: relative;
+			width:100%;
+		}
+		#big-img .content{
+			position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);
+		    -webkit-transform: translate(-50%, -50%);
+		    z-index: 2;	
+		    padding:30px 10%;
+		    background-color: rgba(0,0,0,0.2)
+		}
+		#big-img .content .title-1{
+			font-size:70px;
+			font-weight:100;
+			color:#fff;
+			text-align: center;
+		}
+		#big-img .content .title-btn{
+			position: relative;
+			width:150px;
+		   
+		    display: block;
+		    padding: 11px 20px;
+		    color: #fff;
+		    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.14);
+		    box-shadow: 0 5px 5px rgba(0,0,0,0.14);
+		    border:1px solid #fff;
+		    border-radius: 20px;
+		    font-size: 14px;
+		    font-weight: 400;
+		    font-family: "Ubuntu",sans-serif;
+		    line-height: 20px;
+		    text-align: center;
+		    text-transform: uppercase;
+		    vertical-align: middle;
+		    overflow: hidden;
+		    cursor: pointer;
+		    text-align: center;
+		    margin:10px auto 0;
+		    -moz-transition: all,0.4s,ease-in-out;
+		    -webkit-transition: all,0.4s,ease-in-out;
+		    -o-transition: all,0.4s,ease-in-out;
+		    transition: all,0.4s,ease-in-out;
+		}
+
+		#big-img .content .title-btn:before, 
+		#big-img .content .title-btn:after {
+		    content: "";
+		    position: absolute;
+		    left: 50%;
+		    width: 0;
+		    bottom: 50%;
+		    height: 0;
+		    background: #0ab3a3;
+		    opacity: 0;
+		    -moz-transition: all,0.4s,ease-in-out;
+		    -webkit-transition: all,0.4s,ease-in-out;
+		    -o-transition: all,0.4s,ease-in-out;
+		    transition: all,0.4s,ease-in-out;
+		    z-index:-1;
+		}
+		#big-img .content .title-btn:hover{
+			border-color:#0ab3a3;
+			border-radius: 2px;
+		}
+		#big-img .content .title-btn:hover:before, 
+		#big-img .content .title-btn:hover:after{
+			left: 0;
+			bottom:0;
+		    width: 100%;
+		    height:100%;
+		    opacity: 1; 
+		}
+		.content-1 a .title{
+			font-weight: normal;
+		}
+		.content-1 a .detail{
+			font-weight: 100;
+		}
+		
+
+		
+				
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" id="nav">
+	  <div class="container">
+	    <ul class="nav navbar-nav">
+	      	<li>
+	      		<span class="site-title">重庆美食网<sub class="site-subtitle">CqMS</sub></span>
+	      	</li>
+	        <li class="active">
+	          <a href="javascript:;" id="index">首页</a>
+	        </li>
+	        <li>
+	          <a href="javascript:;" id="caipu">美食菜谱</a>
+	        </li>
+	        <li>
+	          <a href="javascript:;" id="news">饮食资讯</a>
+	        </li>
+	        <li>
+	          <a href="javascript:;" id="video">美食视频</a>
+	        </li>
+	    </ul>
+
+	    <ul class="nav navbar-nav navbar-right">
+	      	<li><a href="javascript:;" id="link">友情链接</a></li>
+	        <li><a href="about.html" target="_blank">关于我们</a></li>
+	    </ul>
+	  </div>
+	</nav>
+	<div id="big-img">
+		<img src="images/big-img.jpg">
+		<div class="content">
+			<div class="title-1">重庆美食网</div>
+			<div class="title-btn" id="more">查看更多</div>
+		</div>
+	</div>
+	
+	<div class="container main-content">
+		<div class="section caipu">
+			<div class="title">
+				<h3>美食菜谱<span class="subtitle">丰富的各式菜谱，教您如何烹制美食</span></h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="content-1">
+						<a href="caipu-orginal/重庆小面.html" target="_blank">
+							<img src="images/caipu/chongqingxiaomiao.jpg">
+							<div class="title">重庆小面</div>
+							<div class="detail">
+								糖醋丸子 京菜 健脾開胃食譜 糖醋丸子特色:酥脆甜酸，开胃适口。”..
+								<span class="more">详情>></span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-3">
+							<a href="caipu-orginal/避风塘炒蟹.html" target="_blank">
+								<img src="images/caipu/bifengtangchaoxie.png" alt="">
+								<h5 class="text-center">避风塘炒蟹</h5>
+							</a>							
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/陈皮兔丁.html" target="_blank">
+								<img src="images/caipu/chenpituding.png" alt="">
+								<h5 class="text-center">陈皮兔丁</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/素什锦.html" target="_blank">
+								<img src="images/caipu/sushijin.png" alt="">
+								<h5 class="text-center">素什锦</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/孜然牛肉.html" target="_blank">
+								<img src="images/caipu/ziranniurou.jpg" alt="">
+								<h5 class="text-center">孜然牛肉</h5>
+							</a>
+						</div>
+					</div>
+					<br/>
+					<div class="row">
+						<div class="col-sm-3">
+							<a href="caipu-orginal/蜜汁带鱼.html" target="_blank">
+								<img src="images/caipu/mizhidaiyu.png" alt="">
+								<h5 class="text-center">蜜汁带鱼</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/梅菜扣肉.html" target="_blank">
+								<img src="images/caipu/meicaikouru.jpg" alt="">
+								<h5 class="text-center">梅菜扣肉</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/橙香酱猪蹄.html" target="_blank">
+								<img src="images/caipu/chengxiangjiangzhuti.jpg" alt="">
+								<h5 class="text-center">橙香酱猪蹄</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="caipu-orginal/海带结棒骨汤.html" target="_blank">
+								<img src="images/caipu/haidaijiebanggutang.png" alt="">
+								<h5 class="text-center">海带结棒骨汤</h5>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section news">
+			<div class="title">
+				<h3>饮食资讯<span class="subtitle">超量的饮食资讯为您提供全面的健康饮食！</span></h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="content-1">
+						<a href="news-orginal/吃鱼防癌效果佳.html" target="_blank">
+							<img src="images/news/201603301129382501.png">
+							<div class="title">吃鱼防癌效果佳</div>
+							<div class="detail">鱼的营养价值，相信大家都是了解一些的。鱼肉不仅鲜嫩无比，口感..
+								<span class="more">详情>></span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-4 news-content">
+							<a href="news-orginal/春季过敏怎么破.html" target="_blank">春季过敏怎么破？</a>
+							<br/>
+							<a href="news-orginal/淘米次数不过三.html" target="_blank">淘米次数不过三</a>
+							<br/>
+							<a href="news-orginal/电脑族抗辐射应该吃什么.html" target="_blank">电脑族抗辐射应该吃什么</a>
+							<br/>
+							<a href="news-orginal/阿胶怎样吃才能不上火.html" target="_blank">阿胶怎样吃才能不上火</a>
+						</div>
+						<div class="col-sm-8">
+							<div id="flash1">
+								<object  classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+								    codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" id="swf">  
+								    <param name="movie" value="images/zf03320.swf">  
+								    <param name="quality" value="high">  
+								    <param name="bgcolor" value="#F0F0F0">  
+								    <param name="menu" value="false">  
+								    <param name="wmode" value="opaque">  
+								    <param name="FlashVars" value="">  
+								    <param name="allowScriptAccess" value="sameDomain">  
+								    <param name="loop" value="false">  
+								    <param name="play" value=""false"">  
+								    <embed name="swf" src="http://ra.gtimg.com/web/default_fodders/409x114_1.swf?v=20130124"  
+								        width="100%" height="200"  
+								        align="middle"  
+								        quality="high"  
+								        menu="true"  
+								        play="true"  
+								        loop="true"  
+								        FlashVars=""  
+								        allowScriptAccess="sameDomain"  
+								        type="application/x-shockwave-flash"  
+								        pluginspage="http://www.adobe.com/go/getflashplayer">  
+								    </embed>  
+								</object> 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section video">
+			<div class="title">
+				<h3>美食视频<span class="subtitle">手把手教您制作各种美味</span></h3>
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="content-1">
+						<a href="video-orginal/诸葛烤鱼.html" target="_blank">
+							<img src="images/video/zhugekaoyu.jpg">
+							<i class="fa fa-play-circle-o icon-video"></i>
+							<div class="title">诸葛烤鱼</div>
+							<div class="detail">诸葛烤鱼是一道汉族传统名菜，属于川菜系或湘菜系。烤鱼系列为主特色，烤鱼、功夫卤、香水鱼、精品...
+								<span class="more">详情>></span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-sm-3">
+							<a href="video-orginal/浮图老火锅.html" target="_blank">
+								<img src="images/caipu/haidaijiebanggutang.png" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">浮图老火锅</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="video-orginal/重庆小面.html" target="_blank">
+								<img src="images/caipu/chongqingxiaomiao.jpg" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">重庆小面</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="video-orginal/石锅焖鸡.html" target="_blank">
+								<img src="images/video/shiguomenji.jpg" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">石锅焖鸡</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="video-orginal/松茸鸡汤.html" target="_blank">
+								<img src="images/video/songrongjitang.jpg" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">松茸鸡汤</h5>
+							</a>
+						</div>
+					</div>
+					<br/>
+					<div class="row">
+						<div class="col-sm-3">
+							<a href="video-orginal/合川肉片.html" target="_blank">
+								<img src="images/video/hechuanroupian.jpg" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">合川肉片</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="video-orginal/肝腰合炒.html" target="_blank">
+								<img src="images/video/ganyaohechao.jpg" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">肝腰合炒</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<a href="video-orginal/煌金蒜蓉大虾.html" target="_blank">
+								<img src="images/caipu/haidaijiebanggutang.png" alt="">
+								<i class="fa fa-play-circle-o icon-video"></i>
+								<h5 class="text-center">煌金蒜蓉大虾</h5>
+							</a>
+						</div>
+						<div class="col-sm-3">
+							<embed type="application/x-shockwave-flash" src="http://images.sohu.com/bill/s2016/ranzhang/mr/hyll/160-140.swf" width="160" height="130" id="extend_small" name="extend_small" quality="high" wmode="transparent" allowscriptaccess="always" flashvars="clickthru=http%3A//tv.sohu.com/s2016/dsjsll/" title="Adobe Flash Player">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section link">
+			<div class="title">
+				<h3>友情链接</h3>
+			</div>
+			<div class="frdlink_list">
+				<a href="http://www.meishichina.com/" target="_blank" title="美食天下">美食天下</a> 
+				<a href="http://www.meishij.net/" target="blank" title="美食杰">美食杰</a>
+				<a href="http://food.poco.cn/" target="_blank" title="POCO美食网">POCO美食网</a>
+				<a href="http://www.cy8.com.cn/" target="_blank" title="餐饮加盟网">餐饮加盟网</a>
+				<a href="http://www.chinacaipu.com/" target="_blank" title="菜谱网">菜谱网</a>
+				<a href="http://food.cntv.cn/" target="_blank" title="CNTV美食台">CNTV美食台</a>
+				<a href="http://www.6eat.com" target="_blank" title="中国吃网">中国吃网</a>
+				<a href="http://www.680.com/" target="blank" title="威客网">威客网</a>
+				<a href="http://www.pcbaby.com.cn/shipu/" target="_blank" title="Pcbaby食谱库">Pcbaby食谱库</a>
+				<a href="http://www.szeat.net/" target="_blank" title="深圳美食网">深圳美食网</a>
+				<a href="http://www.680.com/logo/" target="_blank" title="logo设计">logo设计</a>
+				<a href="http://www.zhms.cn/Ms_menu/tang/" target="blank" title="汤类大全">汤类大全</a>
+				<a href="http://www.fancai.com/" target="blank" title="饭菜网">饭菜网</a>
+				<a href="http://video.zhms.cn/" target="_blank" title="美食视频">美食视频</a>
+				<a href="http://www.vikecn.com/" target="_blank" title="威客中国">威客中国</a>
+				<a href="http://www.66law.cn" target="_blank" title="法律咨询">法律咨询</a>
+				<a href="http://www.canyin88.com/" target="_blank" title="粤港餐饮网">粤港餐饮网</a>
+				<a href="http://tui.680.com/" target="_blank" title="众推">众推</a>
+				<a href="http://www.xuezuofan.net/" target="_blank" title="学做饭">学做饭</a>
+				<a href="http://www.tfysw.com/" target="_blank" title="美食城">美食城</a>
+				<a href="http://yitu.zhms.cn/" target="_blank" title="医途">医途</a>
+				<a href="http://shop.680.com/" target="_blank" title="威客服务商">威客服务商</a> 
+				<div class="rowline10"></div>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="ft_about">
+			<a href="about.html" target="_blank">关于我们</a>
+			<span>|</span>
+			<a href="contactus.html" target="_blank">联系我们</a>
+			<span>|</span>
+			<a href="ad.html" target="_blank">广告服务</a>
+			<span>|</span>
+			<a href="caipu-orginal/蜜汁带鱼.html" target="_blank" title="美食菜谱">美食菜谱</a>
+			<span>|</span>
+			<a href="news-orginal/吃鱼防癌效果佳.html" target="_blank" title="饮食资讯">饮食资讯</a>
+			<span>|</span>
+			<a href="video-orginal/浮图老火锅.html" target="_blank" title="美食视频">美食视频</a>
+			<span>|</span>
+			<a href="index.html" target="_blank" title="中华美食网">网站首页</a>   
+			<br> Copyright(©) 2016 重庆美食网 All rights reserved.
+		</div>
+	</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery2.1.4.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+	$(function(){
+		
+	})
+</script>
+</body>
+</html>
